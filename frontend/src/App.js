@@ -34,11 +34,11 @@ function App() {
             <Link to="/">Ecovoy</Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">Booking</a>
             {userInfo ? (
               <Link to="/profile">{userInfo.name}</Link>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin">Shippping</Link>
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
