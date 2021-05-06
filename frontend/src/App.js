@@ -31,14 +31,17 @@ function App() {
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
-            <Link to="/">Ecovoy4.0</Link>
+
+            <Link to="/">Ecovoy</Link>
           </div>
           <div className="header-links">
             <a href="cart.html">Booking</a>
             {userInfo ? (
               <Link to="/profile">{userInfo.name}</Link>
             ) : (
+
               <Link to="/signin">Shipping</Link>
+
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
