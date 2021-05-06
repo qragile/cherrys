@@ -31,6 +31,7 @@ function App() {
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
+
             <Link to="/">Ecovoy</Link>
           </div>
           <div className="header-links">
@@ -38,7 +39,9 @@ function App() {
             {userInfo ? (
               <Link to="/profile">{userInfo.name}</Link>
             ) : (
-              <Link to="/signin">Shippping</Link>
+
+              <Link to="/signin">Shipping</Link>
+
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
@@ -85,7 +88,7 @@ function App() {
             <Route path="/" exact={true} component={HomeScreen} />
           </div>
         </main>
-        <footer className="footer">All right reserved.</footer>
+        <footer className="footer">QrAgile Atlas reserved.</footer>
       </div>
     </BrowserRouter>
   );
