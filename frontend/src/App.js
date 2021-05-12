@@ -32,6 +32,7 @@ function App() {
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
+
             <Link to="/">Ecovoy</Link>
           </div>
           <div className="header-links">
