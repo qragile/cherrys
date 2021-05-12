@@ -13,7 +13,7 @@ import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import OrdersScreen from './screens/OrdersScreen';
+import OrdersScreen  from './screens/OrdersScreen';
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
@@ -25,6 +25,7 @@ function App() {
   const closeMenu = () => {
     document.querySelector('.sidebar').classList.remove('open');
   };
+  
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -34,11 +35,11 @@ function App() {
             <Link to="/">Ecovoy</Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">Picking</a>
             {userInfo ? (
               <Link to="/profile">{userInfo.name}</Link>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin">Shipping</Link>
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
@@ -85,7 +86,7 @@ function App() {
             <Route path="/" exact={true} component={HomeScreen} />
           </div>
         </main>
-        <footer className="footer">All right reserved.</footer>
+        <footer className="footer">QrAtlas reserved.</footer>
       </div>
     </BrowserRouter>
   );
