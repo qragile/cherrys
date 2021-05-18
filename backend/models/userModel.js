@@ -2,11 +2,13 @@ import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
   {
+    acount:{ type: Number, required: true }, 
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     isAdmin: { type: Boolean, default: false, required: true },
     isSeller: { type: Boolean, default: false, required: true },
+    isDelivery: { type: Boolean, default: false, required: true },
     seller: {
       name: String,
       logo: String,

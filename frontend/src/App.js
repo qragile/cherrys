@@ -64,8 +64,7 @@ function App() {
             >
               <i className="fa fa-bars"></i>
             </button>
-            <Link className="brand" to="/">
-            <img class="small" src="./images/LogoEcovoy-a-02.jng" alt="product" />
+            <Link className="brand" to="/">Ecovoy
             </Link>
           </div>
           <div>
@@ -76,12 +75,14 @@ function App() {
             ></Route>
           </div>
           <div>
+          {userInfo ? (
             <Link to="/cart">
               Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
             </Link>
+  ) : ( <Link to="/signin"></Link>  )}
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
@@ -129,7 +130,7 @@ function App() {
                     <Link to="/dashboard">Dashboard</Link>
                   </li>
                   <li>
-                    <Link to="/productlist">Products</Link>
+                    <Link to="/productlist">Services</Link>
                   </li>
                   <li>
                     <Link to="/orderlist">Orders</Link>
@@ -256,7 +257,7 @@ function App() {
         </main>
         <footer className="row center">
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div>License for Ecovoy4.0</div>{' '}
+          <div>License for Ecovoy 2021</div>{' '}
         </footer>
       </div>
     </BrowserRouter>
