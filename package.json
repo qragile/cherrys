@@ -1,8 +1,17 @@
 {
   "name": "q_agil-ecovoy40",
+  "type": "module",
   "version": "1.0.0",
   "description": "Demo : https://hidden-meadow-74120.herokuapp.com/",
   "main": "index.js",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qragile/q_agil-ecovoy40.git"
+  },
   "dependencies": {
     "aws-sdk": "^2.702.0",
     "babel-node": "0.0.1-security",
@@ -17,12 +26,12 @@
     "mongo": "^0.1.0",
     "mongoclient": "^1.0.3",
     "mongodb": "^3.6.6",
-    "mongoose": "^5.8.11",
+    "mongoose": "^5.10.7",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
     "nodejs": "0.0.0",
     "proxi": "0.0.1",
-    "socket.io": "^4.1.1"
+    "socket.io": "^4.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -31,7 +40,7 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/register": "^7.13.16",
     "babel-core": "^7.0.0-bridge.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -39,23 +48,14 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "nodemon": "^2.0.7"
   },
-  "scripts": {
-    "start": "nodemon --watch backend --exec babel-node backend/server.js",
-    "build": "rm -rf dist && babel backend -d dist  && cd frontend && npm install && npm run build",
-    "heroku-postbuild-x": "npm run build && cd frontend && npm install && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/qragile/q_agil-ecovoy40.git"
-  },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/qragile/q_agil-ecovoy40.git"
+    "url": "https://github.com/qragile/q_agil-ecovoy40/ussues"
   },
-  "homepage": "https://github.com/qragile/q_agil-ecovoy40.git",
+  "homepage": "https://github.com/qragile/q_agil-ecovoy40/amazona#readme",
   "engines": {
-    "node": "14.16.1",
-    "npm": "6.14.12"
+    "node": "12.4.0",
+    "npm": "6.9.0"
   }
 }
