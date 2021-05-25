@@ -75,14 +75,13 @@ function App() {
             ></Route>
           </div>
           <div>
-          {userInfo ? (
+            
             <Link to="/cart">
               Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
             </Link>
-  ) : ( <Link to="/signin"></Link>  )}
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
@@ -116,6 +115,27 @@ function App() {
                   </li>
                   <li>
                     <Link to="/orderlist/seller">Orders</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+            {userInfo && userInfo.isDelivery && (
+              <div className="dropdown">
+                <Link to="#admin">
+                  Delivery <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/productlist/scanner">Load</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist/scanner">List Load</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist/delivery">Historys</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist/delivery">Payments</Link>
                   </li>
                 </ul>
               </div>
@@ -263,5 +283,24 @@ function App() {
     </BrowserRouter>
   );
 }
-
+app.get('/posts', validateToken, async (req, res) => {
+  try {
+    const meliObject = new MeliObject(res.locals.access_token);    
+    const user = await meliObject.get('/users/me');
+    const items = (await meliObject.get(`/users/${user.id}/items/search`)).results || [];
+    if (items.length) {
+      const result = [];
+      const promises = items.map(item_id => meliObject.get(`/items/${item_id}`));
+      for await (item of promises) {
+        result.push(item);
+      }
+      res.render('posts', { items: result });
+    } else {
+      res.status(404).send('no items were found :(');
+    }
+  } catch(err) {
+    console.log('Something went wrong', err);
+    res.status(500).send(`Error! ${err}`);
+  }
+});
 export default App;

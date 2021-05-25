@@ -13,6 +13,7 @@ export default function UserEditScreen(props) {
   const [email, setEmail] = useState('');
   const [isSeller, setIsSeller] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isDelivery, setIsDelivery] = useState(false);
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
@@ -37,13 +38,14 @@ export default function UserEditScreen(props) {
       setEmail(user.email);
       setIsSeller(user.isSeller);
       setIsAdmin(user.isAdmin);
+      setIsDelivery(user.isDelivery);
     }
   }, [dispatch, props.history, successUpdate, user, userId]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     // dispatch update user
-    dispatch(updateUser({ _id: userId, name, email, isSeller, isAdmin }));
+    dispatch(updateUser({ _id: userId, name, email, isSeller, isAdmin, isDelivery }));
   };
   return (
     <div>
@@ -79,6 +81,15 @@ export default function UserEditScreen(props) {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="isDelivery">Is DeliveryMan</label>
+              <input
+                id="isDelivery"
+                type="checkbox"
+                checked={isDelivery}
+                onChange={(e) => setIsDelivery(e.target.checked)}
               ></input>
             </div>
             <div>

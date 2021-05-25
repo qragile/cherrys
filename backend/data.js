@@ -3,10 +3,12 @@ import bcrypt from 'bcryptjs';
 const data = {
   users: [
     {
+      acount_number: 'Ecovoy-61100',
       name: 'Qragile',
       email: 'edgar.gonzalez@qragile.com',
       password: bcrypt.hashSync('1234', 8),
       isAdmin: true,
+      isDelivery: true,
       isSeller: true,
       seller: {
         name: 'Puma',
@@ -15,8 +17,21 @@ const data = {
         rating: 4.5,
         numReviews: 120,
       },
+      delivery: {
+        shipping  : '4040404040',
+      },
     },
     {
+        acount_number: 'Ecovoy-61100',
+        name: 'Qragile',
+        email: 'jaime@qragile.com',
+        password: bcrypt.hashSync('1234', 8),
+        isAdmin: true,
+        isDelivery: true,
+        isSeller: true,
+    },
+    {
+      acount_number: 'Ecovoy-61100',
       name: 'John',
       email: 'user@example.com',
       password: bcrypt.hashSync('1234', 8),
@@ -25,6 +40,7 @@ const data = {
   ],
   products: [
     {
+      acount_number: 'Ecovoy-61100',
       name: 'Nike Slim Shirt',
       category: 'Shirts',
       image: '/images/p1.jpg',
@@ -36,6 +52,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      acount_number: 'Ecovoy-61100',
       name: 'Adidas Fit Shirt',
       category: 'Shirts',
       image: '/images/p2.jpg',
@@ -47,6 +64,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      acount_number: 'Ecovoy-61100',
       name: 'Lacoste Free Shirt',
       category: 'Shirts',
       image: '/images/p3.jpg',
@@ -58,6 +76,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      acount_number: 'Ecovoy-61100',
       name: 'Nike Slim Pant',
       category: 'Pants',
       image: '/images/p4.jpg',
@@ -69,6 +88,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      acount_number: 'Ecovoy-61100',
       name: 'Puma Slim Pant',
       category: 'Pants',
       image: '/images/p5.jpg',
@@ -80,6 +100,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      acount_number: 'Ecovoy-61100',
       name: 'Adidas Fit Pant',
       category: 'Pants',
       image: '/images/p6.jpg',
